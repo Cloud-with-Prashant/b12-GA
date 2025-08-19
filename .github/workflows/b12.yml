@@ -4,22 +4,14 @@ on: push
 
 jobs:
   Test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14, 16, 18]
-
+    runs-on: self-hosted
+   
     steps:
      - name: Code Checkout Repo 
        uses: actions/checkout@v5 
 
-     - name: Setting up Node JS  ${{ matrix.node-version }} 
-       uses: actions/setup-node@v4 
-       with:
-         node-version: ${{ matrix.node-version }}
-
-     - name: Verfying the Nodejs Version
-       run: node -v 
+     - name: create a file 
+       run: echo "testing self hosted runner" > output.txt  
 
 
 
